@@ -16,6 +16,9 @@ Update package.json
 }
 
 npm install express cors
+npm install express mongoose dotenv
+// OR
+npm i express mongoose dotenv
 
 Run your server in development mode with nodemon
 npm run dev

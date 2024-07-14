@@ -1,8 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000;
-
+const port = process.PORT || 3000;
 
 // Use CORS middleware
 app.use(cors());
@@ -12,6 +12,7 @@ app.use(express.json());
 
 // const router = express.Router();
 const Router_Index = require('./routes/index');
+
 
 
 // Default route
