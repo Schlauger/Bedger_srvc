@@ -1,0 +1,21 @@
+Initiate App
+npm init -y
+
+npm install express
+
+Start app
+node app.js
+
+Install nodemon to automatically restarts server
+npm install --save-dev nodemon
+
+Update package.json
+"scripts": {
+  "start": "node <<app_name.js>>",
+  "dev": "nodemon <<app_name.js>>"
+}
+
+npm install express cors
+
+Run your server in development mode with nodemon
+npm run dev
