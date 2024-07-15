@@ -18,3 +18,9 @@ exports.bedgingit = (req, res) =>
     const { arg1, arg2 } = req.body;
     res.json({ data: `Values are ${arg1} and ${arg2}`, code: `|${arg1}${arg2}` });
 };
+
+
+exports.bedging_Add = async () =>
+{
+
+};
