@@ -20,5 +20,8 @@ npm install express mongoose dotenv
 // OR
 npm i express mongoose dotenv
 
+//mongoDB in Atlas
+
+
 Run your server in development mode with nodemon
 npm run dev

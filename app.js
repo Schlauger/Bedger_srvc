@@ -4,6 +4,25 @@ const cors = require('cors');
 const app = express();
 const port = process.PORT || 3000;
 
+
+// const { default: mongoose } = require('mongoose');
+const mongoose = require('mongoose');
+// Set Mongo
+mongoose.set('strictQuery', false);
+
+const connDB = async () =>
+{
+    try
+    {
+        const conn = await mongoose.connect(process.env.MONGO_URL);
+        console.log(`MongoDB connected: ${conn.connection.host}`)
+    } catch (error)
+    {
+        console.log(error);
+        process.exit(1);
+    }
+}
+
 // Use CORS middleware
 app.use(cors());
 

@@ -1,4 +1,6 @@
-
+// import our models
+const artifisciellment = require("./rec_models/artifisciellment");
+const item = require("./rec_models/item");
 
 exports.simple = (req, res) =>
 {
