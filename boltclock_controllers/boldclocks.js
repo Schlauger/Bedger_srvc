@@ -20,6 +20,11 @@ exports.bedgingit = (req, res) =>
 };
 
 
+exports.init = async () =>
+    {
+    
+};
+    
 exports.bedging_Add = async () =>
 {
 

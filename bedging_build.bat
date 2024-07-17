@@ -1,41 +1,44 @@
-
 @ECHO OFF
-echo  number %~1
+setlocal enabledelayedexpansion
 
-@REM color 0D
-@REM cls
-@REM echo Begding proccess...
-@REM npm install express cors 
-@REM cls
-@REM echo Begding install nodemon to automatically restarts server
-@REM @REM Install nodemon to automatically restarts server
-@REM npm install --save-dev nodemon
+goto :main
 
-@REM cls
-@REM echo Begding install mongoose for mongoDB and dotenv for variables
-@REM @REM Install mongoose dotenv
-@REM npm i mongoose dotenv
+:bstr
+for /f "tokens=*" %%i in ('Bstring.bat "!clr!" "!str!"') do set "output=%%i"
+echo !output!
+goto :eof
 
-@REM set str1=37
-@REM set st=[1;
-@REM set tr=m>nul
-@REM set cl=%st%%str1%%tr% 
-@REM set COLOR_BRIGH= %cl%
-@REM echo %COLOR_BRIGH%COLOR_BRIGHTPURPLE %COLOR_RESET%
-@REM set str1=34
-@REM set st=[1;
-@REM set tr=m>nul
-@REM set cl=%st%%str1%%tr% 
-@REM set COLOR_BRIGH= %cl%
-@REM @REM color  0D
+:main
+REM echo Beginning process...
+echo Bedging_passcode=53 43 48 4C 41 55 47 45 52>> .env
 
-@REM setx COLOR_RESET [0m>nul
-@REM set COLOR_RESET=[0m>nul
-@REM echo %COLOR_BRIGH% COLOR_BRIGHTPURPLE %COLOR_RESET%
+npm install express cors 
+
+npm install --save-dev nodemon 
+
+npm i mongoose dotenv 
 
 
-@REM echo %COLOR_BRIGHTYELLOW%COLOR_BRIGHTYELLOW %COLOR_RESET%
+set "clr=95"
+set "str=Beginning process..."
+call :bstr %clr% "%str%"
+REM echo Beginning install nodemon to automatically restart server
+set "clr=45"
+set "str=Install nodemon"
+call :bstr %clr% "%str%"
 
-CALL Bstring.bat 34 Bedger
-echo retured: %1
-EXIT /B 0
+REM echo Beginning install mongoose for mongoDB and dotenv for variables
+REM Install mongoose dotenv
+set "clr=45"
+set "str=Install mongoose dotenv"
+call :bstr %clr% "%str%"
+npm i mongoose dotenv
+set "clr=47"
+set "str=Create a dotenv file" 
+call :bstr %clr% "%str%"
+echo. "Bedding_passcode=53 43 48 4C 41 55 47 45 52">.env
+endlocal
+
+
+
+
