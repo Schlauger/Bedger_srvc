@@ -14,11 +14,6 @@ const ItemSchema = new Schema({
         type: String,
         required: false,
     },
-    ingredients: {
-        type: Map,
-        of: Number,
-        required: false,
-    },
     operate: {
         type: [String],
         required: false,

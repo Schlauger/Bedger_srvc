@@ -11,13 +11,9 @@ router.get('/quote', bc_ctrl.quote);
 
 router.post('/bedging', bc_ctrl.bedgingit);
 
-connDB().then(() =>
-{
-    app.listen(PORT,)
-    router.app.listen(PORT, () =>
-    {
-        console.log(`Listening on port ${PORT}`);
-    })
-});
+router.get('/bedger-init', bc_ctrl.bedg_init);
+
+router.get('/bedger-find', bc_ctrl.bedg_find);
+
 
 module.exports = router;

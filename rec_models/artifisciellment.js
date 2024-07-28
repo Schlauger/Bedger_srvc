@@ -12,4 +12,4 @@ const artifisciellmentSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model("Tool", artifisciellmentSchema);
+module.exports = mongoose.model("Ideopoiima", artifisciellmentSchema);

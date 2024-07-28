@@ -2,11 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = process.PORT || 3000;
-
-
 // const { default: mongoose } = require('mongoose');
 const mongoose = require('mongoose');
+
+const port = process.env.PORT || 3003;
+
 // Set Mongo
 mongoose.set('strictQuery', false);
 
@@ -23,22 +23,29 @@ const connDB = async () =>
     }
 }
 
-// Use CORS middleware
-app.use(cors());
-
-// Body parsing middleware
-app.use(express.json());
-
-// const router = express.Router();
-const Router_Index = require('./routes/index');
-
-
-
-// Default route
-app.use('/', Router_Index);
-
+connDB().then(() =>
+{
+    app.listen(port, () =>
+    {
+        console.log(`DB Listening on port ${port}`)
+    })
+});
 
 app.listen(port, () =>
 {
     console.log(`Bedger app is on http://localhost:${port}`);
 })
+
+// Use CORS middleware
+app.use(cors());
+// Body parsing middleware
+app.use(express.json());
+
+
+// const router = express.Router();
+const Router_Index = require('./routes/index');
+// Default route
+app.use('/', Router_Index);
+
+
+

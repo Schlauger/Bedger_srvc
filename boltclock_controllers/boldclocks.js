@@ -1,6 +1,8 @@
 // import our models
-const artifisciellment = require("./rec_models/artifisciellment");
-const item = require("./rec_models/item");
+const artifisciellment = require("../rec_models/artifisciellment");
+
+
+const item = require("../rec_models/item");
 
 exports.simple = (req, res) =>
 {
@@ -19,8 +21,34 @@ exports.bedgingit = (req, res) =>
     res.json({ data: `Values are ${arg1} and ${arg2}`, code: `|${arg1}${arg2}` });
 };
 
-
-exports.bedging_Add = async () =>
+exports.bedg_init = async (req, res) =>
 {
+    try
+    {
+        await Ideopoiima.insertMany([
+            {
+                title: "Screwberry creamoda",
+                desc: "Strawberry cream soda with yolk/aquafaba, vanilla, asiline and milk/yogart.",
+            },
+            {
+                title: "Multitool",
+                desc: "Bourbon whisky,cognac,yolk/aquafaba,cream liquera and vanilla.",
+            }
+        ]);
+    } catch (error)
+    {
+        console.log("err", + error);
+    }
+};
 
+exports.bedg_find = async () =>
+{
+    const bedg = await Ideopoiima.find();
+    if (bedg)
+    {
+        res.json(bedg)
+    } else
+    {
+        res.send("Something wrong.");
+    }
 };
