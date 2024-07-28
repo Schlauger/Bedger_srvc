@@ -21,17 +21,7 @@ exports.bedgingit = (req, res) =>
     res.json({ data: `Values are ${arg1} and ${arg2}`, code: `|${arg1}${arg2}` });
 };
 
-<<<<<<< HEAD
 exports.bedg_init = async (req, res) =>
-=======
-
-exports.init = async () =>
-    {
-    
-};
-    
-exports.bedging_Add = async () =>
->>>>>>> 22b87665a3b552b1355d113de120221bf6a760dc
 {
     try
     {
