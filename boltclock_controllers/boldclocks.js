@@ -34,7 +34,7 @@ exports.bedg_init = async (req, res) =>
             {
                 title: "Multitool",
                 desc: "Bourbon whisky,cognac,yolk/aquafaba,cream liquera and vanilla.",
-            }
+            },
             {
                 title: "Chacuterie",
                 desc: "Gamon,salami,Glygo karidaki,Ham-maker,smoke pyrex,mix-nuts,Halloumi,bedger chickpea dip,chickpea flatbreads, workers pie",
