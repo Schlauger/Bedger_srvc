@@ -31,7 +31,7 @@ connDB().then(() =>
     {
         app.listen(port, () =>
         {
-            console.log(`DB Listening on port ${port}`)
+            console.log(`DB (mongo) Listening on port ${port}`)
         })
 });
     

@@ -1,5 +1,5 @@
 // import our models
-const artifisciellment = require("../rec_models/artifisciellment");
+const Ideopoiima = require("../rec_models/ideopoiima");
 
 
 const item = require("../rec_models/item");
@@ -23,9 +23,9 @@ exports.bedgingit = (req, res) =>
 
 exports.bedg_init = async (req, res) =>
 {
+    console.log("Initializing DB...");
     try
     {
-        console.log("Initializing DB...");
         await Ideopoiima.insertMany([
             {
                 title: "Screwberry creamoda",
@@ -39,21 +39,68 @@ exports.bedg_init = async (req, res) =>
                 title: "Chacuterie",
                 desc: "Gamon,salami,Glygo karidaki,Ham-maker,smoke pyrex,mix-nuts,Halloumi,bedger chickpea dip,chickpea flatbreads, workers pie",
             }
+            
         ]);
+        console.log("Initialized.");
     } catch (error)
     {
-        console.log("err", + error);
+        console.log("[Initializing] err: ", error);
+        res.status(500).send("Error initializing DB");
     }
 };
 
-exports.bedg_find = async () =>
+exports.bedg_find = async (req, res) =>
 {
-    const bedg = await Ideopoiima.find();
-    if (bedg)
-    {
-        res.json(bedg)
-    } else
-    {
-        res.send("Something wrong.");
+    try {
+        const recs = await Ideopoiima.find();
+        res.json(recs);
+    } catch (error) {
+        console.log("[Finding] err: ", error);
+        res.status(500).send("Error finding records");
+    }
+};
+
+exports.add_ideopoiima = async (req, res) => {
+    const { title, desc } = req.body;
+
+    try {
+        const newIdeop = new Ideopoiima({ title, desc });
+        await newIdeop.save();
+        res.status(201).json(newIdeopoiima);
+    } catch (error) {
+        console.log("[Adding] err: ", error);
+        res.status(500).send("Error adding Ideopoiima");
+    }
+};
+
+exports.edit_ideopoiima = async (req, res) => {
+    const { id } = req.params;
+    const { title, desc } = req.body;
+
+    try {
+        const editedIdeop = await Ideopoiima.findByIdAndUpdate(id, { title, desc }, { new: true });
+        if (!editedIdeop) {
+            return res.status(404).send("Ideopoiima not found");
+        }
+        res.json(editedIdeop);
+
+    } catch (error) {
+        console.log("[Updating] err: ", error);
+        res.status(500).send("Error updating Ideopoiima");
+    }
+
+};
+
+exports.delete_ideopoiima = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const deletedIdeopoiima = await Ideopoiima.findByIdAndDelete(id);
+        if (!deletedIdeopoiima) {
+            return res.status(404).send("Ideopoiima not found");
+        }
+        res.json({ message: "Ideopoiima deleted" });
+    } catch (error) {
+        console.log("[Deleting] err: ", error);
+        res.status(500).send("Error deleting Ideopoiima");
     }
 };
